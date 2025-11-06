@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mehdi Hassan - Resume</title>
+    <style>
+        :root {
+            --bg1: #080d14;
+            --bg2: #0d1824;
+            --accent: #3b82f6;
+            --accent-2: #0ea5e9;
+            --glass: rgba(255,255,255,0.05);
+            --glass-2: rgba(255,255,255,0.02);
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --radius: 12px;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(180deg, var(--bg1), var(--bg2));
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        .resume {
+            background: linear-gradient(180deg, #0e1f32, #0c2c3e);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--accent);
+        }
+
+        .name {
+            font-size: 2.5rem;
+            margin: 0 0 8px;
+        }
+
+        .title {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin: 0 0 16px;
+        }
+
+        .contact {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section-title {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin: 0 0 20px;
+            border-bottom: 1px solid var(--glass);
+            padding-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .skill-card {
+            background: var(--glass);
+            padding: 16px;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .education-item, .project-item {
+            margin-bottom: 24px;
+        }
+
+        .education-item h3, .project-item h3 {
+            color: var(--text);
+            margin: 0 0 8px;
+        }
+
+        .education-meta, .project-meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .tag {
+            background: var(--glass);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--accent);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: var(--radius);
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--accent-2);
+        }
+
+        .print-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .resume {
+                box-shadow: none;
+                border: none;
+            }
+            .print-btn {
+                display: none;
+            }
+            .btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="resume">
+            <header class="header">
+                <img src="/portfolio/1719328843423 (1).jpg" alt="Mehdi Hassan">
+                <h1 class="name">Mehdi Hassan</h1>
+                <h2 class="title">Web Frontend, Backend, and AI Developer</h2>
+                <div class="contact">
+                    <p>📧 mehdi313hassan@gmail.com</p>
+                    <p>📍 Gilgit Baltistan, Pakistan</p>
+                </div>
+            </header>
+
+            <section class="section">
+                <h2 class="section-title">About Me</h2>
+                <p>A passionate Web Frontend, Backend, and AI Developer, currently pursuing a degree in Artificial Intelligence at Karakoram International University. With a strong foundation in web technologies and intelligent systems, I specialize in building modern, responsive, and efficient web applications that blend functionality with creative design.</p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <h3>Bachelor In Artificial Intelligence</h3>
+                    <div class="education-meta">
+                        <p>Karakoram International University (KIU) | Gilgit</p>
+                        <p style="color: #22c55e">2024-2028 | Continue</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <h3>Diploma of Associate Engineer in Information Communication Technology</h3>
+                    <div class="education-meta">
+                        <p>Govt College of Technology Bahawalpur</p>
+                        <p style="color: #22c55e">2021-2024 | Completed</p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <h3>Matriculation In Science</h3>
+                    <div class="education-meta">
+                        <p>Sky Academy Faizabad</p>
+                        <p style="color: #22c55e">2019-2021 | Completed</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Frontend</h3>
+                        <p class="education-meta">HTML, CSS, JavaScript, React</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Backend</h3>
+                        <p class="education-meta">Node.js, Express, Python</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Database</h3>
+                        <p class="education-meta">MySQL, PostgreSQL</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Deployment</h3>
+                        <p class="education-meta">Netlify, GitHub</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Dev Tools</h3>
+                        <p class="education-meta">Git, Vercel, Netlify</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>AI / ML</h3>
+                        <p class="education-meta">TensorFlow, OpenAI API</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Social Media</h3>
+                        <p class="education-meta">Instagram, Facebook, LinkedIn</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Fbackent</h3>
+                        <p class="education-meta">(Custom skill)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Notable Projects</h2>
+                <div class="project-item">
+                    <h3>LMS Dashboard</h3>
+                    <p>A modern LMS dashboard with roles, analytics, and responsive UI.</p>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Tailwind</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3>AI Chat Dashboard</h3>
+                    <p>Dashboard to manage AI chatbots with roles, analytics, and export features.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">React</span>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3>E‑commerce Website</h3>
+                    <p>High-conversion landing page with product carousel and payment integration.</p>
+                    <div class="tags">
+                        <span class="tag">Next.js</span>
+                        <span class="tag">Stripe</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">AWS</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <a href="#" onclick="window.print(); return false;" class="btn print-btn">Print Resume</a>
+    </div>
+
+    <script>
+        // Force scroll to top on load
+        window.history.scrollRestoration = 'manual';
+        window.scrollTo(0, 0);
+    </script>
+</body>
+</html>

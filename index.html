@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)http://127.0.0.1:5500/Your%20Name%20%E2%80%94%20Professional%20Portfolio.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name — Professional Portfolio</title>
+  <meta name="description" content="Professional portfolio of Your Name — web developer, designer, projects, contact.">
+  <style>
+    /* Experience Animation Styles */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .experience-item .card {
+      transform: translateX(-100%);
+      opacity: 0;
+      transition: all 0.8s ease;
+    }
+    .experience-item.revealed .card {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    
+    /* Alternate sides for experience cards */
+    .experience-item:nth-child(even) .card {
+      transform: translateX(100%);
+      margin-left: 32px;
+      margin-right: 0;
+    }
+    .experience-item:nth-child(even).revealed .card {
+      transform: translateX(0);
+    }
+
+    /* -------------------------
+       Reset & base
+       ------------------------- */
+    :root{
+      --bg1: #040d16;
+      --bg2: #061a25;
+      --accent: #6be4c3;
+      --accent-2: #74b9ff;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --text: #e9f2f8;
+      --muted: #9fb3c4;
+      --radius: 12px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      background: transparent;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+      line-height:1.5;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Particles background */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: var(--bg1);
+      background: linear-gradient(120deg,var(--bg2), var(--bg2));
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    /* Ensure particles cover the full page */
+    html, body {
+      min-height: 100%;
+      height: auto;
+      position: relative;
+    }
+    
+    /* Make cards appear above particles */
+    .hero-card, .profile, .project, .skill, .card {
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Container for proper stacking */
+    .site {
+      position: relative;
+      z-index: 1;
+      background: transparent;
+    }
+    
+    /* Ensure all content stays above particles */
+    header, main, footer {
+      position: relative;
+      z-index: 1;
+      
+    }
+    
+    .card, .hero-card, .profile, .project, .skill {
+      background: linear-gradient(180deg, #0d1d2f, #0b2a3b);
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Slightly lighten specified sections */
+    #about .card, #education .card, #experience .card {
+      background: linear-gradient(180deg, #0e1f32, #0c2c3e);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    /* Floating blobs
+    .blob{
+      position:fixed;
+      border-radius:50%;
+      filter: blur(30px) saturate(120%);
+      opacity:0.6;
+      z-index:-3;
+      transform: translate3d(0,0,0);
+      mix-blend-mode:screen;
+    }
+    .blob.b1{width:480px;height:480px;left:-120px;top:-80px;background:linear-gradient(135deg,#4fd1c5,#60a5fa); animation: float1 8s ease-in-out infinite;}
+    .blob.b2{width:360px;height:360px;right:-90px;bottom:-100px;background:linear-gradient(135deg,#7bd389,#9ad0ff); animation: float2 9s ease-in-out infinite;}
+    @keyframes float1{0%{transform:translateY(0)}50%{transform:translateY(30px) scale(1.02)}100%{transform:translateY(0)}}
+    @keyframes float2{0%{transform:translateY(0)}50%{transform:translateY(-30px) scale(0.98)}100%{transform:translateY(0)}} */
+
+    /* Scroll Padding for Header Offset */
+    html {
+      scroll-padding-top: 100px; /* This ensures content appears below 
+      header when scrolling to anchors */
+      scroll-behavior: smooth; /* This makes the scrolling smooth */
+    }
+
+    /* Page container */
+    .site{
+      width: 100%;
+      max-width:1100px;
+      margin:0 auto;
+      padding:90px 28px 20px 28px;
+      flex: 1 1 auto;
+      padding-top: calc(70px + 20px); /* header height + desired spacing */
+    }
+    
+    /* Container class for consistent widths */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 10px 20px;
+      background: linear-gradient(180deg, rgba(13, 29, 47, 0.95), rgba(11, 42, 59, 0.95));
+      transition: all 0.24s ease;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      height: 70px; /* fixed height for consistent main margin */
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .logo{
+      width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#07202b;
+      box-shadow: 0 6px 18px rgba(72,94,116,0.2);
+      overflow:hidden; /* ensure svg stays clipped to rounded corner */
+    }
+    /* Animated SVG inside the logo */
+  .logo svg{width:100%;height:100%;display:block;transition:transform .18s ease, filter .18s ease}
+  .logo img{width:100%;height:100%;display:block;object-fit:cover;object-position:center center;transform:scale(1.12);transition:transform .22s cubic-bezier(.2,.9,.2,1), filter .22s ease}
+  .logo .ring{fill:none;stroke:rgba(255,255,255,0.18);stroke-width:5;stroke-linecap:round;transform-box:fill-box;transform-origin:50% 50%;animation:logo-spin 6s linear infinite;transition:stroke .18s ease}
+  .logo .logo-text{fill:#07202b;font-weight:700;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;pointer-events:none}
+  /* hover: slight scale + glow */
+  /* default image is slightly zoomed to crop nicely; hover increases zoom + glow */
+  .logo:hover svg, .logo:hover img{transform:scale(1.22);filter:drop-shadow(0 10px 26px rgba(107,228,195,0.18))}
+  .logo:hover .ring{stroke:rgba(255,255,255,0.26)}
+    @keyframes logo-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .brand h1{font-size:1.05rem;margin:0}
+    .brand p{margin:0;font-size:0.8rem;color:var(--muted)}
+
+    nav{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    nav a{
+      text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:10px;font-weight:600;font-size:0.92rem;
+    }
+    nav a:hover{color:var(--text);background:var(--glass)}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:center;
+      margin-bottom:36px;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, #0d1d2f, #0b2a3b);
+      border-radius: var(--radius);
+      padding:28px;
+      box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.05);
+      transform: translateZ(0); /* For better performance */
+    }
+    /* Removed custom hero card lift for consistency */
+    .hero h2{margin:0 0 10px 0;font-size:1.9rem}
+    .hero p.lead{color:var(--muted);margin:0 0 18px 0;font-size:1rem}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042226;
+      box-shadow: 0 8px 18px rgba(57,118,105,0.12);border:none;cursor:pointer;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(107,228,195,0.2);
+    }
+    .btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: 0.5s;
+    }
+    .btn:hover:before {
+      left: 100%;
+    }
+    .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--glass);font-weight:600}
+    .btn.ghost:hover {
+      background: var(--glass);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* quick info */
+    .info{
+      display:flex;gap:12px;margin-top:14px;flex-wrap:wrap;
+    }
+    .info .chip{
+      background:var(--glass);padding:8px 12px;border-radius:12px;color:var(--muted);font-weight:600;
+    }
+
+    /* sidebar card */
+    .profile{
+      background: linear-gradient(180deg, #0d1d2f, #0b2a3b);
+      padding:20px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.05);
+      display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    /* Using consistent glow effect */
+    .profile {
+      position: relative;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+    }
+    .profile:hover {
+      transform: translateY(-4px);
+    }
+    @keyframes glowPulse {
+      0%, 100% { 
+        filter: blur(8px); 
+        opacity: 0.5;
+        box-shadow: 0 0 15px rgba(0,149,255,0.3);
+      }
+      50% { 
+        filter: blur(12px); 
+        opacity: 0.7;
+        box-shadow: 0 0 25px rgba(66,153,225,0.4);
+      }
+    }
+    .profile img{width:120px;height:120px;border-radius:16px;object-fit:cover;border:3px solid rgba(255,255,255,0.03)}
+    .profile h3{margin:0}
+    .socials{display:flex;gap:10px}
+    .socials a{width:40px;height:40px;border-radius:10px;background:var(--glass);display:inline-grid;place-items:center;text-decoration:none;color:var(--text);font-weight:700}
+
+  /* Sections */
+  section{margin-bottom:34px}
+
+  /* Reduce bottom spacing specifically for the contact section so it sits closer to the footer */
+  #contact{margin-bottom:12px}
+    h3.section-title{margin:0 0 12px 0;font-size:1.2rem}
+    
+    /* Shared glow effect for cards */
+    .glow-card {
+      position: relative;
+      transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.5s ease;
+    }
+    .glow-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(45deg, 
+        rgba(0,149,255,0.15),
+        rgba(66,153,225,0.3),
+        rgba(0,149,255,0.15));
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+      filter: blur(6px);
+    }
+    .glow-card:hover {
+      transform: translateY(-4px);
+    }
+    .glow-card:hover::before {
+      opacity: 0.5;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+    
+    .card{
+      background: linear-gradient(180deg, #0a1725, #081520);
+      border-radius:14px;
+      padding:18px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+
+    /* Projects grid */
+    .projects-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+    }
+    .project{
+      padding:14px;
+      border-radius:12px;
+      background: linear-gradient(180deg, #0d1d2f, #0b2a3b);
+      border:1px solid rgba(255,255,255,0.05);
+      transition:transform .22s ease, box-shadow .22s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .project:hover{transform:translateY(-8px);box-shadow: 0 18px 40px rgba(2,6,23,0.5)}
+    .project h4{margin:0 0 8px 0}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:0.8rem;padding:6px 8px;border-radius:8px;background:var(--glass);color:var(--muted)}
+
+    /* Skills */
+    .skills{display:flex;gap:10px;flex-wrap:wrap}
+    .skill{
+      min-width:120px;
+      flex:1 1 140px;
+      padding:10px;
+      border-radius:12px;
+      background: linear-gradient(180deg, #0d1d2f, #0b2a3b);
+      border:1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }    /* Contact form */
+    form{display:grid;gap:12px}
+    input,textarea{
+      width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);
+      background:transparent;color:var(--text);outline:none;font-size:1rem
+    }
+    textarea{min-height:120px;resize:vertical}
+    .muted{color:var(--muted);font-size:0.9rem}
+
+    footer{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:0.9rem;padding:20px 0}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns: 1fr;}
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+      .site{padding:20px;margin:28px auto}
+    }
+    @media (max-width:620px){
+      .projects-grid{grid-template-columns:1fr}
+      nav{display:flex}
+      header{gap:8px}
+    }
+
+    /* Footer Styles */
+    .footer {
+      background: linear-gradient(180deg, var(--bg2), #040916);
+      padding: 40px 0 24px; /* reduced top padding to bring footer closer */
+      margin-top: 28px;    /* much smaller gap above footer */
+      position: relative;
+      z-index: 2;
+    }
+    
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      padding: 0 28px; /* balanced horizontal padding */
+      justify-items: start; /* align columns to the left */
+    }
+    
+    .footer-section h2 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+  /* left-align text inside each footer column */
+  .footer-section{ text-align: left }
+    
+    .footer-section p {
+      color: var(--muted);
+      margin-bottom: 1px;
+      font-size: 0.95rem;
+    }
+    
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px; /* tightened spacing */
+      width: auto;
+      height: auto;
+      align-items: flex-start; /* left-align links */
+      justify-content: flex-start;
+      transition: all 0.2s ease;
+    }
+
+    /* On narrow screens, center footer columns for better layout */
+    @media (max-width:980px){
+      .footer-content{justify-items:center;padding:0 20px;grid-template-columns:1fr}
+      .footer-section{ text-align:center }
+      .footer-nav{align-items:center}
+    }
+    
+    
+    .footer-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    /* Nudge the quick-links (2) and contact-info (3) columns slightly right on wide screens */
+    .footer-content .footer-section:nth-child(2),
+    .footer-content .footer-section:nth-child(3){
+      transform: translateX(18px);
+      transition: transform 220ms ease;
+    }
+    
+    .footer-nav a:hover {
+      color: var(--accent);
+    }
+    
+    .contact-details {
+      margin-bottom: 20px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: var(--glass-2);
+      transform: translateY(-3px);
+    }
+    
+    .social-icon img {
+      width: 20px;
+      height: 20px;
+      filter: brightness(0) invert(1);
+    }
+
+    /* Footer quick-link bullet (small circle with chevron) */
+    .footer-nav a::before{
+      content: "\25B6"; /* small triangle/chevron */
+      display:inline-grid;
+      place-items:center;
+      width:18px;height:18px;border-radius:50%;
+      background:var(--glass);color:var(--accent);font-size:10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.22);
+      flex: 0 0 18px;
+    }
+
+    /* slightly reduce anchor spacing to make rows tighter */
+    .footer-nav a{padding:3px 0}
+    
+    /* Divider under footer columns */
+    .footer-divider{
+      height: 1px;
+      background: rgba(255,255,255,0.04);
+      margin: 18px 60px 0; /* match the horizontal padding in .footer-content */
+    }
+
+    /* Bottom credit bar: centered below the divider */
+    .footer-bottom {
+      position: relative;
+      padding: 16px 0 24px;
+      margin-top: 6px;
+      color: var(--muted);
+      text-align: center;
+      display: block;
+    }
+
+    .footer-bottom .credit {
+      display: inline-block;
+      position: relative;
+      top: 0; /* no overlap, sits below the divider */
+      background: transparent;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .footer-bottom .credit .heart svg{display:inline-block;vertical-align:middle}
+    .footer-bottom .credit .heart svg path{fill:#ff6b81}
+    .footer-bottom .credit .author{color:var(--accent);text-decoration:none;font-weight:700}
+
+    /* small yellow pill in footer that acts as a "go to top" control */
+    .footer-pill{
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width:40px;height:40px;border-radius:50%;
+      background:#f59e0b; /* amber */
+      border: none;
+      display:grid;place-items:center;
+      box-shadow:0 8px 20px rgba(245,158,11,0.18);
+      cursor:pointer;
+      color:#081219;
+      z-index:1200;
+    }
+    .footer-pill:hover{transform:translateY(-50%) scale(1.05)}
+    /* active visual state used when user scrolls toward the profile section */
+    .footer-pill.active{
+      transform:translateY(-50%) scale(1.12);
+      box-shadow:0 12px 30px rgba(245,158,11,0.28);
+      outline: 3px solid rgba(255,211,140,0.12);
+    }
+
+    /* subtle pulse while active to draw attention */
+    @keyframes footerPillPulse{0%{transform:translateY(-50%) scale(1.10)}50%{transform:translateY(-50%) scale(1.14)}100%{transform:translateY(-50%) scale(1.10)}}
+    .footer-pill.active.pulse{animation: footerPillPulse 1.2s ease-in-out infinite}
+
+    /* Make footer stick to bottom when page is short */
+    footer{flex-shrink:0}
+
+    /* little utility */
+    .muted-2{color:var(--muted);font-size:0.95rem}
+    a.focus-ring:focus{outline:2px solid rgba(107,228,195,0.12);outline-offset:3px}
+
+    /* Scroll reveal animations: elements slide up into view */
+    .reveal{
+      opacity: 0;
+      transform: translateY(24px);
+      /* slowed a bit: longer duration for a gentler reveal */
+      transition: transform 800ms cubic-bezier(.2,.9,.2,1), opacity 600ms ease-out;
+      will-change: transform, opacity;
+    }
+    .reveal.revealed{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Back to top floating button */
+    .back-to-top{
+      position:fixed;
+      right:20px;
+      bottom:22px;
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#042226;
+      display:grid;place-items:center;
+      box-shadow:0 8px 24px rgba(0,0,0,0.25);
+      cursor:pointer;
+      opacity:0;pointer-events:none;transform:translateY(8px);
+      transition:opacity .28s ease, transform .28s ease;
+      z-index:1200;
+    }
+    .back-to-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+    .back-to-top svg{width:18px;height:18px}
+
+    /* Respect user preference for reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .reveal{transition:none;transform:none;opacity:1}
+      .back-to-top{transition:none}
+    }
+
+    /* Popup effect: subtle pop-in on scroll + hover scale for emphasis */
+    .pop{
+      opacity: 0;
+      transform: translateY(18px) scale(0.98);
+      transition: transform 520ms cubic-bezier(.2,.9,.2,1), opacity 420ms ease, box-shadow 420ms ease;
+      will-change: transform, opacity;
+    }
+    .pop.popped{
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      box-shadow: 0 12px 30px rgba(2,6,23,0.45);
+    }
+    .pop:hover{
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(2,6,23,0.5);
+    }
+
+    /* Keep motion minimal for users who prefer reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .pop, .pop.popped { transition: none; transform: none; opacity: 1; box-shadow: none; }
+    }
+    
+    /* Active nav link styling (header only) */
+    header nav a.active {
+      color: var(--text);
+      background: linear-gradient(90deg, rgba(107,228,195,0.06), rgba(116,185,255,0.04));
+      box-shadow: 0 6px 18px rgba(107,228,195,0.06);
+      border-radius: 10px;
+      transition: background 240ms ease, color 180ms ease, box-shadow 220ms ease;
+    }
+    header nav a.active::after{
+      content: '';
+      display: block;
+      height: 3px;
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      border-radius: 3px;
+      margin-top:6px;
+      width:100%;
+    }
+    
+    /* Global responsive fixes */
+    body {
+      overflow-x: hidden; /* prevent horizontal scroll */
+      min-height: 100vh;
+      width: 100%;
+    }
+    
+    /* Prevent media overflow */
+    img, picture, video, svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      vertical-align: middle; /* remove bottom gap */
+    }
+    
+    /* Make embedded content responsive */
+    iframe {
+      width: 100%;
+      border: 0;
+    }
+
+    /* Make the about card image responsive (overrides inline width/height) */
+    .about-content img {
+      width: 100%;
+      max-width: 360px; /* keeps a reasonable max on larger screens */
+      height: auto !important;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      margin: 0 auto;
+    }
+
+    /* Tablet and mobile layout tweaks */
+    @media (max-width: 980px) {
+      .hero { 
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .skills {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .site {
+        padding: 70px 20px 20px;
+      }
+      .about-content {
+        grid-template-columns: 1fr 2fr;
+        gap: 24px;
+        padding: 24px;
+      }
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+      /* Navigation */
+      header {
+        padding: 8px 16px;
+      }
+      nav {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px; /* Space for scroll bar */
+        margin: 0 -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      nav a {
+        white-space: nowrap;
+        padding: 8px 12px;
+      }
+      
+      /* Layout */
+      .hero {
+        gap: 18px;
+      }
+      .profile img {
+        width: 120px;
+        height: 120px;
+      }
+      .about-content {
+        grid-template-columns: 1fr;
+        padding: 18px;
+        gap: 18px;
+        text-align: center;
+      }
+      .about-content img {
+        margin: 0 auto;
+      }
+      
+      /* Grids */
+      .skills {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      /* Buttons and CTAs */
+      .cta-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      /* Text adjustments */
+      h2 {
+        font-size: 1.6rem;
+      }
+      .lead {
+        font-size: 1rem;
+      }
+      
+      /* Container spacing */
+      .site {
+        padding-top: calc(70px + 16px);
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      
+      /* Stack info chips */
+      .info {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .chip {
+        text-align: center;
+      }
+    }
+
+    /* Small mobile tweaks */
+    @media (max-width: 480px) {
+      .skills {
+        grid-template-columns: 1fr;
+      }
+      .hero-card {
+        padding: 20px;
+      }
+      header .brand h1 {
+        font-size: 1rem;
+      }
+      header .brand p {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js" aria-hidden="true"></div>
+  <div class="site" role="main">
+    <header>
+      <div class="brand" title="Your Name">
+        <div class="logo" aria-hidden="true">
+          <!-- Logo image (replaced SVG with image provided) -->
+          <img src="./images/profile.jpg" alt="Mehdi Hassan">
+        </div>
+        <div>
+          <h1>Mehdi Hassan</h1>
+          <p>Frontend Developer · UI/UX · AI Developer · Open-source</p>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-card glow-card">
+          <h2>Hello — I'm <span style="color:var(--accent)">Mehdi Hassan</span></h2>
+          <p class="lead">I build clean, accessible, and high-performance web apps.develop AI base agents,chat bots</p>
+
+          <div class="cta-row">
+            <a class="btn" href="contact-page.html">Hire me</a>
+            <a class="btn ghost" href="projects-page.html">View projects</a>
+          </div>
+
+          <div class="info" aria-hidden="true">
+            <div class="chip">Available for freelance</div>
+            <div class="chip">Based in Pakistan</div>
+            <div class="chip">5+ projects shipped</div>
+          </div>
+
+          <div style="margin-top:18px" class="muted">
+            <strong>Recent:</strong> Built a responsive LMS dashboard — performance optimized with accessibility in mind.
+          </div>
+        </div>
+
+        <aside class="profile glow-card" aria-labelledby="profile-name">
+          <img src="./images/profile.jpg" alt="Your photo">
+          <h3 id="profile-name">Mehdi Hassan</h3>
+          <p class="muted-2">Frontend developer — React / Next.js / HTML &amp; CSS / AI developer</p>
+
+          <div class="socials" aria-label="Social links">
+            <a class="focus-ring" href="https://www.facebook.com/share/16WERZVCtb/" title="Facebook" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 2 .1v2.2h-1.1c-1.1 0-1.4.7-1.4 1.3V12h2.4l-.4 3h-2v7A10 10 0 0 0 22 12z"></path>
+              </svg>
+            </a>
+
+            <a class="focus-ring" href="https://www.linkedin.com/in/mehdi-hassan-b11922360?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app" title="LinkedIn" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M19 0H5C2.238 0 0 2.238 0 5v14c0 2.762 2.238 5 5 5h14c2.762 0 5-2.238 5-5V5c0-2.762-2.238-5-5-5zM7.069 19H4.5v-8.999h2.569V19zM6.035 8.798c-.855 0-1.551-.697-1.551-1.553 0-.857.696-1.553 1.551-1.553.856 0 1.552.697 1.552 1.553 0 .857-.696 1.553-1.552 1.553zM20.333 19h-2.671v-4.664c0-1.113-.02-2.545-1.552-2.545-1.554 0-1.793 1.216-1.793 2.472V19h-2.563V9h2.563v1.374h.036c.357-.68 1.229-1.396 2.53-1.396 2.707 0 3.205 1.783 3.205 4.104V19z"></path>
+              </svg>
+            </a>
+
+            <a class="focus-ring" href="https://www.instagram.com/mehdi_hassan09?igsh=dTJtNm5lOHJtbW1z" title="Instagram" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm5 6.5A3.5 3.5 0 1 1 8.5 12 3.5 3.5 0 0 1 12 8.5zm4.5-3a.9.9 0 1 1-.9.9.9.9 0 0 1 .9-.9z"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div style="width:100%;margin-top:6px">
+            <a class="btn" href="social-media.html" style="width:100%;display:inline-block;text-align:center">Get in touch</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" aria-labelledby="about-title">
+        <h2 class="section-title" style="margin-bottom: 32px"><alt="" style="width: 32px; height: 32px; margin-right: 8px; vertical-align: middle">About Me</h2>
+        
+        <div class="about-content card glow-card" style="display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: start; padding: 32px; background: linear-gradient(180deg, #0e1f32, #0c2c3e); border: 1px solid rgba(255,255,255,0.07);">
+          <img src="/images/profile.jpg" alt="Mehdi Hassan" style="width: 300px; height: 400px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2)">
+          
+          <div class="about-text">
+            <h3 style="margin: 0 0 16px 0; font-size: 1.8rem; color: var(--text)">I'm Mehdi Hassan</h3>
+            <h4 style="margin: 0 0 24px 0; font-size: 1.2rem; color: var(--muted); font-weight: normal">Web Frontend, Backend, and AI Developer</h4>
+            
+            <p class="muted" style="margin: 0 0 16px 0; line-height: 1.7">A passionate Web Frontend, Backend, and AI Developer, currently pursuing a degree in Artificial Intelligence at Karakoram International University, located in the scenic region of Gilgit-Baltistan, Pakistan.</p>
+            
+            <p class="muted" style="margin: 0 0 16px 0; line-height: 1.7">With a strong foundation in web technologies and intelligent systems, I specialize in building modern, responsive, and efficient web applications that blend functionality with creative design. My focus is on delivering user-centered solutions using the latest tools and frameworks in AI and full-stack development.</p>
+
+            <p class="muted" style="margin: 0 0 24px 0; line-height: 1.7">Driven by curiosity and innovation, I continuously explore new technologies to create smarter digital experiences and impactful solutions for real-world problems.</p>
+            
+            <div class="contact-info" style="display: grid; gap: 8px">
+              <p style="margin: 0; color: var(--muted)">
+                <span style="display: inline-block; min-width: 60px">Email :</span>
+                <a href="mailto:mehdi313hassan@gmail.com" style="color: var(--text); text-decoration: none">mehdi313hassan@gmail.com</a>
+              </p>
+              <p style="margin: 0; color: var(--muted)">
+                <span style="display: inline-block; min-width: 60px">Place :</span>
+                <span style="color: var(--text)">Gilgit Baltistan, Pakistan</span>
+              </p>
+            </div>
+            
+            <a href="resume.html" class="btn" style="margin-top: 24px; display: inline-block">Resume ›</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-title">
+        <h3 class="section-title" id="skills-title"><alt="" style="width: 32px; height: 32px; margin-right: 8px; vertical-align: middle">Skills</h3>
+        <div class="skills" style="display: grid; grid-template-columns: repeat(4, 1fr); gap:16px; align-items:start; margin-top:12px">
+          <div class="skill card glow-card">
+            <strong>Frontend</strong>
+            <div class="muted-2" style="margin-top:6px">HTML, CSS, JavaScript, React</div>
+          </div>
+
+          <div class="skill card glow-card">
+            <strong>Backend</strong>
+            <div class="muted-2" style="margin-top:6px">Node.js, Express, Python</div>
+          </div>
+
+          <div class="skill card glow-card">
+            <strong>Database</strong>
+            <div class="muted-2" style="margin-top:6px">MySQL, PostgreSQL</div>
+          </div>
+
+          <div class="skill card glow-card">
+            <strong>Deployment</strong>
+            <div class="muted-2" style="margin-top:6px">Netlify, GitHub</div>
+          </div>
+
+          <div class="skill card glow-card">
+            <strong>Social Media Management</strong>
+            <div class="muted-2" style="margin-top:6px">Instagram, Facebook, LinkedIn</div>
+          </div>
+
+          <div class="skill card glow-card">
+            <strong>Dev Tools</strong>
+            <div class="muted-2" style="margin-top:6px">Git, Vercel, Netlify</div>
+          </div>
+
+          <div class="skill card glow-card">
+            <strong>AI / ML</strong>
+            <div class="muted-2" style="margin-top:6px">TensorFlow, OpenAI API</div>
+          </div>
+
+          <div class="skill card glow-card">
+            <strong>Fbackent</strong>
+            <div class="muted-2" style="margin-top:6px">(Custom skill)</div>
+          </div>
+        </div>
+
+        <style>
+          @media (max-width:900px){
+            .skills{grid-template-columns: repeat(2, 1fr)}
+          }
+          @media (max-width:480px){
+            .skills{grid-template-columns: 1fr}
+          /* remove translation on small screens so columns remain centered */
+          @media (max-width:980px){
+            .footer-content .footer-section:nth-child(2),
+            .footer-content .footer-section:nth-child(3){
+              transform: none;
+            }
+          }
+          }
+        </style>
+      </section>
+
+      <section id="education" aria-labelledby="education-title">
+        <h2 class="section-title"><alt="" style="width: 32px; height: 32px; margin-right: 8px; vertical-align: middle">My Education</h2>
+        <p style="color: var(--muted); text-align: center; margin: 0 0 32px 0">Education Is Not The Learning Of Facts, But The Training Of The Mind To Think.</p>
+        
+        <div class="education-cards" style="display: flex; flex-direction: column; gap: 24px">
+          <div class="card glow-card" style="display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; padding: 24px">
+            <img src="/images/kiu.jpg" alt="KIU Campus" style="width: 200px; height: 120px; object-fit: cover; border-radius: 8px">
+            <div>
+              <h3 style="margin: 0 0 8px 0; font-size: 1.5rem">Bachelor In Artificial Intelligence</h3>
+              <p style="margin: 0 0 4px 0; color: var(--muted)">Karakoram International University (KIU) | Gilgit</p>
+              <p style="margin: 0; color: #22c55e">2024-2028 | Continue</p>
+            </div>
+          </div>
+
+          <div class="card glow-card" style="display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; padding: 24px">
+            <img src="/images/gct-img.jpg" alt="Danyore College" style="width: 200px; height: 120px; object-fit: cover; border-radius: 8px">
+            <div>
+              <h3 style="margin: 0 0 8px 0; font-size: 1.5rem">Diploma of Associate Engineer in Information Communication Technology</h3>
+              <p style="margin: 0 0 4px 0; color: var(--muted)">Govt College of Technology Bahawalpur</p>
+              <p style="margin: 0; color: #22c55e">2021-2024 | Completed</p>
+            </div>
+          </div>
+
+          <div class="card glow-card" style="display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; padding: 24px">
+            <img src="/images/sky.jpg" alt="Jalalabad School" style="width: 200px; height: 120px; object-fit: cover; border-radius: 8px">
+            <div>
+              <h3 style="margin: 0 0 8px 0; font-size: 1.5rem">Matriculation In Science</h3>
+              <p style="margin: 0 0 4px 0; color: var(--muted)">Sky Academy Faizabad</p>
+              <p style="margin: 0; color: #22c55e">2019-2021 | Completed</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" aria-labelledby="work-title">
+        <h3 class="section-title" id="work-title"><alt="" style="width: 32px; height: 32px; margin-right: 8px; vertical-align: middle">Work</h3>
+        <div class="projects-grid">
+          <article class="project card glow-card" aria-labelledby="p1">
+            <h4 id="p1">LMS Dashboard</h4>
+            <p class="muted">A modern LMS dashboard with roles, analytics, and responsive UI.</p>
+            <div class="tags" style="margin-top:10px">
+              <span class="tag">React</span>
+              <span class="tag">Tailwind</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+            </div>
+          </article>
+
+          <article class="project card glow-card" aria-labelledby="p2">
+            <h4 id="p2">Portfolio Template</h4>
+            <p class="muted">A fast, clean portfolio template built with semantic HTML UI.</p>
+            <div class="tags" style="margin-top:10px">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Responsive</span>
+            </div>
+          </article>
+
+          <article class="project card glow-card" aria-labelledby="p3">
+            <h4 id="p3">Chat App (PWA)</h4>
+            <p class="muted">Real-time chat application with offline support and push notifications.</p>
+            <div class="tags" style="margin-top:10px">
+              <span class="tag">React</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">PWA</span>
+              <span class="tag">WebSockets</span>
+            </div>
+          </article>
+
+          <article class="project card glow-card" aria-labelledby="p4">
+            <h4 id="p4">AI Chat Dashboard</h4>
+            <p class="muted">Dashboard to manage AI chatbots with roles, analytics, and export features.</p>
+            <div class="tags" style="margin-top:10px">
+              <span class="tag">Python</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">Flask</span>
+              <span class="tag">React</span>
+            </div>
+          </article>
+
+          <article class="project card glow-card" aria-labelledby="p5">
+            <h4 id="p5">E‑commerce Website</h4>
+            <p class="muted">High-conversion landing page with product carousel and payment integration.</p>
+            <div class="tags" style="margin-top:10px">
+              <span class="tag">Next.js</span>
+              <span class="tag">Stripe</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">AWS</span>
+            </div>
+          </article>
+
+          <article class="project card glow-card" aria-labelledby="p6">
+            <h4 id="p6">Mobile Game (Prototype)</h4>
+            <p class="muted">Prototype built in Unity with leaderboards and basic in-app analytics.</p>
+            <div class="tags" style="margin-top:10px">
+              <span class="tag">Unity</span>
+              <span class="tag">C#</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Analytics</span>
+            </div>
+          </article>
+        </div>
+        <div style="text-align: center; margin-top: 24px">
+          <a href="projects-page.html" class="btn ghost" style="display:inline-block;padding:10px 16px">More Projects →</a>
+        </div>
+      </section>
+
+
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h3 class="section-title" id="contact-title"><alt="" style="width: 32px; height: 32px; margin-right: 8px; vertical-align: middle">Contact</h3>
+        <div class="card glow-card" style="display:grid;grid-template-columns:1fr 360px;gap:18px;background:linear-gradient(180deg, #0d1d2f, #0b2a3b);border:1px solid rgba(255,255,255,0.05);box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
+          <div>
+            <form id="contactForm" onsubmit="sendForm(event)">
+              <label class="muted" for="name">Name</label>
+              <input id="name" name="name" required placeholder="Your name">
+
+              <label class="muted" for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+              <label class="muted" for="message">Message</label>
+              <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+
+              <div style="display:flex;gap:10px;align-items:center;margin-top:6px">
+                <button class="btn" type="submit">Send message</button>
+                <div id="formStatus" class="muted" aria-live="polite"></div>
+              </div>
+            </form>
+          </div>
+
+          <div style="padding:12px;border-left:1px dashed rgba(255,255,255,0.02)">
+            <h4 style="margin-top:0">Prefer email?</h4>
+            <p class="muted-2">Email me at <strong style="color:var(--accent)">mehdi313hassan@gmail.com</strong></p>
+            <hr style="opacity:0.06;margin:12px 0">
+            <p class="muted">Available for freelance and full-time roles. I usually respond within 24-48 hours.</p>
+
+            <div style="margin-top:18px">
+              <a class="btn ghost" href="#" onclick="copyEmail(event)">Copy email</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
+    </button>
+  </div>
+
+  <script>
+    // site helpers
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    // Ensure page starts at top on load/refresh
+    window.scrollTo(0,0);
+    window.addEventListener('beforeunload', function(){ window.scrollTo(0,0); });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function sendForm(e){
+      e.preventDefault();
+      const status = document.getElementById('formStatus');
+      if(status) status.textContent = 'Sending...';
+
+      // This example doesn't send anywhere — replace with your backend or email service.
+      setTimeout(()=> {
+        if(status) status.textContent = 'Message sent — I will reply soon!';
+        e.target.reset();
+      }, 900);
+    }
+
+    function copyEmail(e){
+      e.preventDefault();
+      navigator.clipboard?.writeText('mehdi313hassan@gmail.com').then(()=>{
+        alert('Email copied to clipboard');
+      }).catch(()=> {
+        alert('Copy failed — please copy manually.');
+      });
+    }
+
+    // Scroll-to-top helper used by footer pill / footer credit
+    function scrollToTopFromFooter(e){
+      if(e && typeof e.preventDefault === 'function') e.preventDefault();
+      // smooth scroll
+      window.scrollTo({top:0, behavior: 'smooth'});
+      // briefly show the floating back-to-top for visual feedback
+      const b = document.getElementById('backToTop');
+      if(b){ b.classList.add('show'); setTimeout(()=>b.classList.remove('show'), 900); }
+      return false;
+    }
+
+    // Back-to-top button behaviour
+    (function(){
+      const btn = document.getElementById('backToTop');
+      if(!btn) return;
+      const showAt = 300;
+      function onScroll(){
+        if(window.scrollY > showAt) btn.classList.add('show'); else btn.classList.remove('show');
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      // initialize
+      onScroll();
+
+      btn.addEventListener('click', function(){
+        window.scrollTo({top:0, behavior: 'smooth'});
+      });
+    })();
+    // Activate footer pill when profile section is scrolled into view
+    (function(){
+      const pill = document.getElementById('footerTopBtn');
+      const profile = document.querySelector('.profile');
+      if(!pill || !profile) return;
+
+      // Use IntersectionObserver to toggle an active state when the profile is entering view
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            pill.classList.add('active','pulse');
+          } else {
+            pill.classList.remove('active','pulse');
+          }
+        });
+      }, {root:null, rootMargin: '0px 0px -40% 0px', threshold: 0.08});
+
+      obs.observe(profile);
+
+      // lightweight scroll fallback: if profile is near the viewport, mark active
+      let ticking = false;
+      function checkProximity(){
+        const r = profile.getBoundingClientRect();
+        const near = r.top < window.innerHeight * 0.8 && r.bottom > 0;
+        if(near) pill.classList.add('active'); else pill.classList.remove('active','pulse');
+        ticking = false;
+      }
+      window.addEventListener('scroll', function(){ if(!ticking){ window.requestAnimationFrame(checkProximity); ticking = true; } }, {passive:true});
+    })();
+  </script>
+  <script>
+    // Scroll reveal using IntersectionObserver
+    (function(){
+      const selectors = [
+        'header', '.hero-card', '.profile', 'section', '.project', '.skill', '.card', '.footer-section'
+      ];
+      const elems = new Set();
+      selectors.forEach(s => document.querySelectorAll(s).forEach(el => elems.add(el)));
+
+      // Add initial reveal class
+      elems.forEach(el => el.classList.add('reveal'));
+
+      // IntersectionObserver options
+      const obs = new IntersectionObserver((entries) =>{
+        entries.forEach(entry => {
+          // Toggle revealed on enter/leave so the animation runs both when scrolling down and up
+          if(entry.isIntersecting){
+            entry.target.classList.add('revealed');
+          } else {
+            entry.target.classList.remove('revealed');
+          }
+        });
+      },{root:null,rootMargin:'0px 0px -8% 0px',threshold:0.12});
+
+      elems.forEach(el => obs.observe(el));
+    })();
+  </script>
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    /* Pop-up wiring: add .pop to common elements and reveal with IntersectionObserver */
+    (function(){
+      try{
+        const selectors = [
+          '.card', '.hero-card', '.profile', '.project', '.skill', 'nav a', '.btn', 'section', 'header', '.footer-section', '.projects-grid article'
+        ];
+
+        // Collect unique elements
+        const elements = new Set();
+        selectors.forEach(sel => {
+          document.querySelectorAll(sel).forEach(el => elements.add(el));
+        });
+
+        // Add base class
+        elements.forEach(el => el.classList.add('pop'));
+
+        // IntersectionObserver to add the 'popped' state when visible
+        const io = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting){
+              // small randomized delay for nicer stagger
+              const delay = entry.target.dataset.popDelay ? parseInt(entry.target.dataset.popDelay,10) : Math.round(Math.random()*220);
+              setTimeout(()=>{
+                entry.target.classList.add('popped');
+              }, delay);
+              // keep the element revealed (unobserve to avoid repeated toggles)
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+        elements.forEach(el => io.observe(el));
+
+        // Accessibility: if user prefers reduced motion, reveal everything immediately
+        const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if(mq && mq.matches){
+          elements.forEach(el => el.classList.add('popped'));
+        }
+      }catch(e){
+        // don't break page if anything fails
+        console.error('Pop effect init failed', e);
+      }
+    })();
+  </script>
+    <script>
+      /* Header nav active link: observe sections and highlight matching header nav link only while the section is visible */
+      (function(){
+        try{
+          const headerNav = document.querySelector('header nav');
+          if(!headerNav) return;
+
+          const navLinks = Array.from(headerNav.querySelectorAll('a[href^="#"]'));
+          const linkById = new Map();
+          const targets = [];
+
+          navLinks.forEach(a => {
+            const id = a.getAttribute('href').slice(1);
+            const el = document.getElementById(id);
+            if(el){ linkById.set(id, a); targets.push(el); }
+          });
+
+          let current = null;
+
+          const io = new IntersectionObserver((entries)=>{
+            // Determine which target currently has the largest visible portion
+            let bestId = null, bestRatio = 0;
+            targets.forEach(t => {
+              const r = t.getBoundingClientRect();
+              const visible = Math.max(0, Math.min(r.bottom, window.innerHeight) - Math.max(r.top, 0));
+              const ratio = visible / (r.height || 1);
+              if(ratio > bestRatio){ bestRatio = ratio; bestId = t.id; }
+            });
+
+            if(bestId && bestRatio > 0.12){
+              if(current !== bestId){
+                current = bestId;
+                navLinks.forEach(a => { a.classList.remove('active'); a.removeAttribute('aria-current'); });
+                const link = linkById.get(bestId);
+                if(link){ link.classList.add('active'); link.setAttribute('aria-current','true'); }
+              }
+            } else {
+              // No section is prominent enough — clear active state
+              current = null;
+              navLinks.forEach(a => { a.classList.remove('active'); a.removeAttribute('aria-current'); });
+            }
+
+          }, { root: null, rootMargin: '-20% 0px -40% 0px', threshold: [0,0.05,0.12,0.25,0.5,0.75,1] });
+
+          // Observe targets
+          targets.forEach(t => io.observe(t));
+
+          // Clicking a link sets active immediately (UX improvement)
+          navLinks.forEach(a => a.addEventListener('click', () => {
+            navLinks.forEach(x => { x.classList.remove('active'); x.removeAttribute('aria-current'); });
+            a.classList.add('active'); a.setAttribute('aria-current','true');
+          }));
+
+          // Initial check on load to set the current link if page starts scrolled
+          window.addEventListener('load', ()=>{
+            let bestId = null, bestRatio = 0;
+            targets.forEach(t => {
+              const r = t.getBoundingClientRect();
+              const visible = Math.max(0, Math.min(r.bottom, window.innerHeight) - Math.max(r.top, 0));
+              const ratio = visible / (r.height || 1);
+              if(ratio > bestRatio){ bestRatio = ratio; bestId = t.id; }
+            });
+            if(bestId && bestRatio > 0.12){
+              navLinks.forEach(x => { x.classList.remove('active'); x.removeAttribute('aria-current'); });
+              const link = linkById.get(bestId);
+              if(link){ link.classList.add('active'); link.setAttribute('aria-current','true'); }
+            }
+          });
+
+        }catch(e){
+          console.error('Nav highlight init failed', e);
+        }
+      })();
+    </script>
+  <script>
+    particlesJS('particles-js',
+      {
+        "particles": {
+          "number": {
+            "value": 100,
+            "density": {
+              "enable": true,
+              "value_area": 1000
+            }
+          },
+          "color": {
+            "value": ["#74b9ff", "#6be4c3"]
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 1,
+              "color": "#74b9ff"
+            }
+          },
+          "opacity": {
+            "value": 0.6,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 1,
+              "opacity_min": 0.3
+            }
+          },
+          "size": {
+            "value": 5,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 2,
+              "size_min": 1
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#6be4c3",
+            "opacity": 0.4,
+            "width": 2,
+            "shadow": {
+              "enable": true,
+              "color": "#74b9ff",
+              "blur": 5
+            }
+          },
+          "move": {
+            "enable": true,
+            "speed": 3,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "bounce",
+            "bounce": true,
+            "attract": {
+              "enable": true,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "repulse"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "bubble"
+            },
+            "resize": true
+          },
+          "modes": {
+            "repulse": {
+              "distance": 100,
+              "duration": 0.4
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 10,
+              "duration": 2,
+              "opacity": 0.8,
+              "speed": 3
+            }
+          }
+        },
+        "retina_detect": true
+      }
+    );
+  </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span><!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-content">
+        <!-- Portfolio Info -->
+        <div class="footer-section">
+          <h2>Mehdi Hassan Portfolio</h2>
+          <p>Thank you for visiting my personal portfolio website!.Let’s connect on social platforms and explore new ideas together.</p>
+          <p>Keep growing, keep shining ⭐ — feel free to reach out via live chat anytime!</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section">
+          <h2>Quick Links</h2>
+          <nav class="footer-nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#work">Work</a>
+          </nav>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section">
+          <h2>Contact Info</h2>
+          <div class="contact-details">
+            <p>📞 +92-3181252881</p>
+            <p>📧 mehdi313hassan@gmail.com</p>
+            <p>🏠 Gilgit Baltistan, Pakistan</p>
+          </div>
+          <div class="social-links">
+            <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/yourusername" target="_blank" class="social-icon">
+              <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+            </a>
+            <a href="mailto:hajathussain72official@gmail.com" class="social-icon">
+              <img src="https://cdn-icons-png.flaticon.com/512/561/561188.png" alt="Email">
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-divider" aria-hidden="true"></div>
+      <div class="footer-bottom">
+        <button id="footerTopBtn" class="footer-pill" aria-label="Go to top" title="Go to top" onclick="return scrollToTopFromFooter(event)">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>
+        </button>
+      </div>
+
+    </footer>
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>

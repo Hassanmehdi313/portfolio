@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Projects — Mehdi Hassan</title>
+  <style>
+    :root{
+      --bg1: #040d16;
+      --bg2: #061a25;
+      --accent: #6be4c3;
+      --accent-2: #74b9ff;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --text: #e9f2f8;
+      --muted: #9fb3c4;
+      --radius: 12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:linear-gradient(120deg,var(--bg1),var(--bg2));color:var(--text);}
+    #particles-js{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+    .container{max-width:1200px;margin:0 auto;padding:40px 20px;position:relative;z-index:1}
+    header{text-align:center;margin-bottom:40px}
+    header h1{font-size:2.25rem;margin:0;background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    header p{color:var(--muted);margin-top:8px}
+    .back-button{display:inline-block;padding:10px 18px;background:var(--glass);color:var(--text);text-decoration:none;border-radius:10px;margin-bottom:18px}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+    .project-card{background:linear-gradient(180deg,#0a1725,#081520);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 24px rgba(0,0,0,0.35);transition:transform .25s ease,box-shadow .25s ease;position:relative;overflow:hidden}
+    .project-card:hover{transform:translateY(-6px);box-shadow:0 14px 40px rgba(0,0,0,0.45)}
+    .project-card h3{margin:0 0 8px;color:var(--accent)}
+    .project-card p{margin:0;color:var(--muted)}
+    .project-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:0.85rem;color:var(--muted)}
+    .project-image{width:100%;height:160px;border-radius:10px;object-fit:cover;margin-bottom:12px;display:block}
+    .project-overlay{position:absolute;inset:0;border-radius:12px;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(0,0,0,0.12))}
+    .project-card::before{content:'';position:absolute;inset:-1px;background:linear-gradient(45deg,rgba(0,149,255,0.12),rgba(66,153,225,0.22));border-radius:inherit;opacity:0;filter:blur(6px);transition:opacity .3s ease;z-index:-1}
+    .project-card:hover::before{opacity:0.5}
+    @media (max-width:768px){header h1{font-size:1.6rem}.project-image{height:140px}}
+  </style>
+</head>
+<body>
+  <div id="particles-js" aria-hidden="true"></div>
+  <div class="container">
+    <a class="back-button" href="Your Name — Professional Portfolio.html">← Back to Portfolio</a>
+
+    <header>
+      <h1>Selected Projects</h1>
+      <p>Real projects I shipped — full-stack apps, dashboards, and prototypes.</p>
+    </header>
+
+    <main>
+      <section class="projects-grid">
+        <article class="project-card">
+          <img class="project-image" src="/images/lms.webp" alt="LMS Dashboard screenshot">
+          <h3>LMS Dashboard</h3>
+          <p class="muted">A modern LMS dashboard with roles, analytics, and responsive UI. Includes role-based access, charts, and export features.</p>
+          <div class="project-meta">
+            <span class="tag">React</span>
+            <span class="tag">Redux</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Postgres</span>
+          </div>
+          <div class="project-overlay" aria-hidden="true"></div>
+        </article>
+
+        <article class="project-card">
+          <img class="project-image" src="/images/portfolio tenplet.jpg" alt="Portfolio Template screenshot">
+          <h3>Portfolio Template</h3>
+          <p class="muted">A fast, accessible portfolio template with semantic HTML and optimized performance for SEO and loading speed.</p>
+          <div class="project-meta">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Responsive</span>
+          </div>
+          <div class="project-overlay" aria-hidden="true"></div>
+        </article>
+
+        <article class="project-card">
+          <img class="project-image" src="/images/AI Chat Bot.png" alt="Chat App screenshot">
+          <h3>Chat App (PWA)</h3>
+          <p class="muted">Real-time chat application with offline support, push notifications, and simple moderation tools.</p>
+          <div class="project-meta">
+            <span class="tag">React</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">PWA</span>
+          </div>
+          <div class="project-overlay" aria-hidden="true"></div>
+        </article>
+
+        <article class="project-card">
+          <img class="project-image" src="/images/AI chat bot Dashboard.webp" alt="AI Chat Dashboard screenshot">
+          <h3>AI Chat Dashboard</h3>
+          <p class="muted">Dashboard to manage AI chatbots with conversation analytics, export tools, and role controls.</p>
+          <div class="project-meta">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">TensorFlow</span>
+            <span class="tag">React</span>
+          </div>
+          <div class="project-overlay" aria-hidden="true"></div>
+        </article>
+
+        <article class="project-card">
+          <img class="project-image" src="/images/E-Commers web.png" alt="E-commerce screenshot">
+          <h3>E‑commerce Website</h3>
+          <p class="muted">High-conversion e-commerce site with product carousels, checkout flows, and Stripe integration.</p>
+          <div class="project-meta">
+            <span class="tag">Next.js</span>
+            <span class="tag">Stripe</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">Postgres</span>
+          </div>
+          <div class="project-overlay" aria-hidden="true"></div>
+        </article>
+
+        <article class="project-card">
+          <img class="project-image" src="/images/Mobile Games.png" alt="Mobile Game screenshot">
+          <h3>Mobile Game (Prototype)</h3>
+          <p class="muted">Prototype built in Unity with leaderboards, basic in-app analytics, and a simple monetization flow.</p>
+          <div class="project-meta">
+            <span class="tag">Unity</span>
+            <span class="tag">C#</span>
+            <span class="tag">Firebase</span>
+          </div>
+          <div class="project-overlay" aria-hidden="true"></div>
+        </article>
+
+      </section>
+    </main>
+
+    <footer style="margin-top:40px;color:var(--muted);text-align:center">© <span id="year">2025</span> Mehdi Hassan</footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {"value":100,"density":{"enable":true,"value_area":1000}},
+        "color": {"value":["#74b9ff","#6be4c3"]},
+        "shape": {"type":"circle"},
+        "size": {"value":5,"random":true,"anim":{"enable":true,"speed":2,"size_min":1}},
+        "line_linked": {"enable":true,"distance":150,"color":"#6be4c3","opacity":0.4,"width":2},
+        "move": {"enable":true,"speed":3,"direction":"none","random":true,"straight":false,"out_mode":"bounce","bounce":true}
+      },
+      "interactivity": {"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"bubble"},"resize":true}},
+      "retina_detect": true
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
