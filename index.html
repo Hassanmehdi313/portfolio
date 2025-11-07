@@ -6,10 +6,84 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
 </style>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Your Name — Professional Portfolio</title>
   <meta name="description" content="Professional portfolio of Your Name — web developer, designer, projects, contact.">
   <style>
+    /* Mobile Menu Styles */
+    .menu-icon {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text);
+      padding: 12px 16px;
+      background: none;
+      border: none;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .main-nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 20px;
+    }
+
+    .main-nav li {
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+        position: relative;
+        z-index: 1000;
+      }
+
+      .main-nav ul {
+        display: none;
+        flex-direction: column;
+        background: var(--bg2);
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        padding: 20px;
+        margin: 0;
+        border: 1px solid var(--glass);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        z-index: 999;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .main-nav ul.show {
+        display: flex;
+      }
+
+      .main-nav li {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .main-nav a {
+        display: block;
+        padding: 16px;
+        width: 100%;
+        font-size: 18px;
+        touch-action: manipulation;
+      }
+
+      /* Prevent background scrolling when menu is open */
+      body.menu-open {
+        overflow: hidden;
+      }
+    }
+
     /* Experience Animation Styles */
     .reveal {
       opacity: 0;
@@ -179,6 +253,17 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
       transition: all 0.24s ease;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       height: 70px; /* fixed height for consistent main margin */
+    }
+
+    /* Center navigation in header on larger screens while keeping brand at left */
+    @media (min-width: 769px) {
+      /* Desktop: brand left, nav on the right and vertically centered */
+      header { justify-content: space-between; }
+      header .brand { position: relative; left: 0; top: 0; transform: none; }
+      header .main-nav { margin: 0; position: relative; }
+      header .main-nav ul { justify-content: flex-end; align-items: center; display: flex; gap: 20px; }
+      /* ensure nav links sit vertically centered inside the header */
+      header .main-nav a { line-height: 70px; height: 70px; display: inline-flex; align-items: center; }
     }
     .brand{
       display:flex;
@@ -359,7 +444,11 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
     }
     .project{
       padding:14px;
-      border-radius:12px;
+        padding: 12px 16px;
+        background: none;
+        border: none;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
       background: linear-gradient(180deg, #0d1d2f, #0b2a3b);
       border:1px solid rgba(255,255,255,0.05);
       transition:transform .22s ease, box-shadow .22s;
@@ -373,6 +462,8 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
     /* Skills */
     .skills{display:flex;gap:10px;flex-wrap:wrap}
     .skill{
+          position: relative;
+          z-index: 1000;
       min-width:120px;
       flex:1 1 140px;
       padding:10px;
@@ -381,12 +472,16 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
       border:1px solid rgba(255,255,255,0.05);
       box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }    /* Contact form */
-    form{display:grid;gap:12px}
-    input,textarea{
+          left: 0;
+          width: 100%;
+          height: calc(100vh - 70px);
       width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);
-      background:transparent;color:var(--text);outline:none;font-size:1rem
+          margin: 0;
     }
     textarea{min-height:120px;resize:vertical}
+          z-index: 999;
+          overscroll-behavior: contain;
+          -webkit-overflow-scrolling: touch;
     .muted{color:var(--muted);font-size:0.9rem}
 
     footer{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:0.9rem;padding:20px 0}
@@ -394,12 +489,17 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
     /* Responsive */
     @media (max-width:980px){
       .hero{grid-template-columns: 1fr;}
-      .projects-grid{grid-template-columns:repeat(2,1fr)}
+          margin: 0;
+          width: 100%;
+          text-align: center;
       .site{padding:20px;margin:28px auto}
     }
     @media (max-width:620px){
       .projects-grid{grid-template-columns:1fr}
-      nav{display:flex}
+          padding: 16px;
+          width: 100%;
+          font-size: 18px;
+          touch-action: manipulation;
       header{gap:8px}
     }
 
@@ -696,6 +796,37 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
       margin: 0 auto;
     }
 
+    /* About section classes to replace inline styles */
+    .about-content {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 32px;
+      align-items: start;
+      padding: 32px;
+      background: linear-gradient(180deg, #0e1f32, #0c2c3e);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+    }
+    .about-img {
+      width: 300px;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .about-title { margin: 0 0 16px 0; font-size: 1.8rem; color: var(--text); }
+    .about-subtitle { margin: 0 0 24px 0; font-size: 1.2rem; color: var(--muted); font-weight: normal }
+    .about-paragraph { margin: 0 0 16px 0; line-height: 1.7 }
+    .contact-info-grid{ display: grid; gap: 8px }
+    .contact-line{ margin: 0; color: var(--muted) }
+    .contact-line span.label{ display:inline-block; min-width:60px }
+    .contact-email{ color: var(--text); text-decoration: none }
+    .resume-btn{ margin-top: 24px; display: inline-block }
+  .recent-note{ margin-top: 18px }
+  .get-touch-wrap{ width:100%; margin-top:6px }
+  .full-btn{ width:100%; display:inline-block; text-align:center }
+
     /* Tablet and mobile layout tweaks */
     @media (max-width: 980px) {
       .hero { 
@@ -746,14 +877,16 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
         height: 120px;
       }
       .about-content {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding: 18px;
         gap: 18px;
         text-align: center;
       }
-      .about-content img {
-        margin: 0 auto;
-      }
+      /* On mobile, show text first and image below */
+      .about-text { order: 1; }
+      .about-img { order: 2; margin: 0 auto 6px auto; }
       
       /* Grids */
       .skills {
@@ -798,6 +931,84 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
       }
     }
 
+    /* Mobile menu styles */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .hamburger-icon {
+      display: block;
+      width: 24px;
+      height: 18px;
+      position: relative;
+    }
+
+    .hamburger-icon .line {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--text);
+      position: absolute;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-icon .line:nth-child(1) { top: 0; }
+    .hamburger-icon .line:nth-child(2) { top: 8px; }
+    .hamburger-icon .line:nth-child(3) { top: 16px; }
+
+    /* Active state for hamburger */
+    .mobile-menu-toggle[aria-expanded="true"] .line:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .mobile-menu-toggle[aria-expanded="true"] .line:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-toggle[aria-expanded="true"] .line:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: block;
+      }
+
+      .main-nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: linear-gradient(180deg, rgba(13, 29, 47, 0.98), rgba(11, 42, 59, 0.98));
+        padding: 20px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        overflow-y: auto;
+      }
+
+      .main-nav.active {
+        transform: translateX(0);
+      }
+
+      .main-nav a {
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        width: 100%;
+        text-align: center;
+        border-radius: 8px;
+      }
+    }
+
     /* Small mobile tweaks */
     @media (max-width: 480px) {
       .skills {
@@ -830,13 +1041,17 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
         </div>
       </div>
 
-      <nav aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#work">Work</a>
-        <a href="#contact">Contact</a>
+        <button class="mobile-menu-toggle menu-icon" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+      
+      <nav aria-label="Main navigation" class="main-nav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
     </header>
 
@@ -857,7 +1072,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
             <div class="chip">5+ projects shipped</div>
           </div>
 
-          <div style="margin-top:18px" class="muted">
+          <div class="muted recent-note">
             <strong>Recent:</strong> Built a responsive LMS dashboard — performance optimized with accessibility in mind.
           </div>
         </div>
@@ -887,8 +1102,8 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
             </a>
           </div>
 
-          <div style="width:100%;margin-top:6px">
-            <a class="btn" href="social-media.html" style="width:100%;display:inline-block;text-align:center">Get in touch</a>
+          <div class="get-touch-wrap">
+            <a class="btn full-btn" href="social-media.html">Get in touch</a>
           </div>
         </aside>
       </section>
@@ -896,31 +1111,31 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
       <section id="about" aria-labelledby="about-title">
         <h2 class="section-title" style="margin-bottom: 32px"><alt="" style="width: 32px; height: 32px; margin-right: 8px; vertical-align: middle">About Me</h2>
         
-        <div class="about-content card glow-card" style="display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: start; padding: 32px; background: linear-gradient(180deg, #0e1f32, #0c2c3e); border: 1px solid rgba(255,255,255,0.07);">
-          <img src="/images/profile.jpg" alt="Mehdi Hassan" style="width: 300px; height: 400px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2)">
+        <div class="about-content card glow-card">
+          <img src="/images/profile.jpg" alt="Mehdi Hassan" class="about-img">
           
           <div class="about-text">
-            <h3 style="margin: 0 0 16px 0; font-size: 1.8rem; color: var(--text)">I'm Mehdi Hassan</h3>
-            <h4 style="margin: 0 0 24px 0; font-size: 1.2rem; color: var(--muted); font-weight: normal">Web Frontend, Backend, and AI Developer</h4>
-            
-            <p class="muted" style="margin: 0 0 16px 0; line-height: 1.7">A passionate Web Frontend, Backend, and AI Developer, currently pursuing a degree in Artificial Intelligence at Karakoram International University, located in the scenic region of Gilgit-Baltistan, Pakistan.</p>
-            
-            <p class="muted" style="margin: 0 0 16px 0; line-height: 1.7">With a strong foundation in web technologies and intelligent systems, I specialize in building modern, responsive, and efficient web applications that blend functionality with creative design. My focus is on delivering user-centered solutions using the latest tools and frameworks in AI and full-stack development.</p>
+            <h3 class="about-title">I'm Mehdi Hassan</h3>
+            <h4 class="about-subtitle">Web Frontend, Backend, and AI Developer</h4>
 
-            <p class="muted" style="margin: 0 0 24px 0; line-height: 1.7">Driven by curiosity and innovation, I continuously explore new technologies to create smarter digital experiences and impactful solutions for real-world problems.</p>
-            
-            <div class="contact-info" style="display: grid; gap: 8px">
-              <p style="margin: 0; color: var(--muted)">
-                <span style="display: inline-block; min-width: 60px">Email :</span>
-                <a href="mailto:mehdi313hassan@gmail.com" style="color: var(--text); text-decoration: none">mehdi313hassan@gmail.com</a>
+            <p class="muted about-paragraph">A passionate Web Frontend, Backend, and AI Developer, currently pursuing a degree in Artificial Intelligence at Karakoram International University, located in the scenic region of Gilgit-Baltistan, Pakistan.</p>
+
+            <p class="muted about-paragraph">With a strong foundation in web technologies and intelligent systems, I specialize in building modern, responsive, and efficient web applications that blend functionality with creative design. My focus is on delivering user-centered solutions using the latest tools and frameworks in AI and full-stack development.</p>
+
+            <p class="muted about-paragraph">Driven by curiosity and innovation, I continuously explore new technologies to create smarter digital experiences and impactful solutions for real-world problems.</p>
+
+            <div class="contact-info contact-info-grid">
+              <p class="contact-line">
+                <span class="label">Email :</span>
+                <a class="contact-email" href="mailto:mehdi313hassan@gmail.com">mehdi313hassan@gmail.com</a>
               </p>
-              <p style="margin: 0; color: var(--muted)">
-                <span style="display: inline-block; min-width: 60px">Place :</span>
+              <p class="contact-line">
+                <span class="label">Place :</span>
                 <span style="color: var(--text)">Gilgit Baltistan, Pakistan</span>
               </p>
             </div>
-            
-            <a href="resume.html" class="btn" style="margin-top: 24px; display: inline-block">Resume ›</a>
+
+            <a href="resume.html" class="btn resume-btn">Resume ›</a>
           </div>
         </div>
       </section>
@@ -1599,4 +1814,79 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
       </div>
 
     </footer>
+    
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector('.main-nav ul');
+        const menuIcon = document.querySelector('.menu-icon');
+        const body = document.body;
+        const isOpen = menu.classList.toggle('show');
+
+        // Prevent background scrolling when menu is open
+        if (isOpen) {
+          body.classList.add('menu-open');
+          menuIcon.textContent = '×';
+          menuIcon.setAttribute('aria-expanded', 'true');
+        } else {
+          body.classList.remove('menu-open');
+          menuIcon.textContent = '☰';
+          menuIcon.setAttribute('aria-expanded', 'false');
+        }
+      }
+
+      // Close menu when clicking nav links
+      document.addEventListener('click', function(event) {
+        const menu = document.querySelector('.main-nav ul');
+        const menuIcon = document.querySelector('.menu-icon');
+        const body = document.body;
+
+        if (event.target.closest('.main-nav a')) {
+          if (menu.classList.contains('show')) {
+            menu.classList.remove('show');
+            body.classList.remove('menu-open');
+            menuIcon.textContent = '☰';
+            menuIcon.setAttribute('aria-expanded', 'false');
+          }
+          return; // allow link navigation
+        }
+
+        // Close menu when clicking outside
+        if (!menu.contains(event.target) && !menuIcon.contains(event.target) && menu.classList.contains('show')) {
+          menu.classList.remove('show');
+          body.classList.remove('menu-open');
+          menuIcon.textContent = '☰';
+          menuIcon.setAttribute('aria-expanded', 'false');
+        }
+      });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+
+            // Toggle menu
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
 <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
