@@ -30,8 +30,20 @@
 
     form{display:grid;gap:12px}
     label{color:var(--muted);font-size:0.95rem}
-    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);outline:none}
-    textarea{min-height:140px;resize:vertical}
+input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);outline:none}
+
+/* Ensure no white background on inputs and textarea */
+input, textarea {
+  background-color: transparent !important;
+  border-color: rgba(255,255,255,0.1) !important;
+  color: var(--text) !important;
+}
+
+/* If needed, adjust card background to ensure no white background */
+.card {
+  background: linear-gradient(180deg,#0a1725,#081520) !important;
+}
+textarea{min-height:140px;resize:vertical; background-color: transparent !important; border: 1px solid rgba(255,255,255,0.1) !important; color: var(--text) !important;}
     .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042226;border:none;cursor:pointer}
     .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--glass)}
 

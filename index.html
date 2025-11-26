@@ -6,10 +6,9 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
 </style>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Your Name — Professional Portfolio</title>
-  <meta name="description" content="Professional portfolio of Your Name — web developer, designer, projects, contact.">
-  <style>
     /* Mobile Menu Styles */
     .menu-icon {
       display: none;
@@ -929,6 +928,12 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
       .chip {
         text-align: center;
       }
+      /* Fix contact box on mobile to stack vertically */
+      #contact > .card {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
     }
 
     /* Mobile menu styles */
@@ -1043,15 +1048,13 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 
         <button class="mobile-menu-toggle menu-icon" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
       
-      <nav aria-label="Main navigation" class="main-nav">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      <nav aria-label="Main navigation" class="main-nav nav-menu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
       </nav>
     </header>
 
@@ -1860,33 +1863,4 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
       });
     </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            const navLinks = document.querySelectorAll('.nav-menu a');
-
-            // Toggle menu
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            // Close menu when clicking nav links
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                }
-            });
-        });
-    </script>
 <span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
